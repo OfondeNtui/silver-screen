@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: silver-screen   #name of the source you will reference in the models
+    database: silver_screen #name of database
+    schema: bronze
+    tables:   #name all of the tables you would reference in the models
+      - name: invoices
+      - name: movie_catalogue
+      - name: nj_001
+        config:
+          freshness:
+            warn_after:
+              count: 30
+              period: day
+            error_after:
+              count: 700
+              period: day
+          loaded_at_field: timestamp
+      - name: nj_002
+      - name: nj_003
